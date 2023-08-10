@@ -1,0 +1,13 @@
+{
+  "name": "test-performance",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "pretest": "webpack",
+    "test": "k6 run dist/user.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,24 +1,19 @@
 name: EBAC PAGES
-
 on: push
-
 jobs:
-  k6-run:
+  cypress-run:
     runs-on: ubuntu-22.04
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+        continue-on-error: true
         with:
-          node-version: 14
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run K6 tests
-        run: |
-          npm install -g k6
-          k6 run your-k6-test.js
+          install-command: npm install
+          browser: chromet
+      - name: Publish Report
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./mochawesome-report

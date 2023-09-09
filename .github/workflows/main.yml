@@ -10,7 +10,8 @@ jobs:
         uses: cypress-io/github-action@v5
         continue-on-error: true
         with:
-          install-command: npm install
+          install-command: npm ci
+          start-command: npm start
           browser: chrome
       - name: Publish Report
         uses: peaceiris/actions-gh-pages@v3

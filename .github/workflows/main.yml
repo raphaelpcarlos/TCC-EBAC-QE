@@ -1,15 +1,26 @@
 name: EBAC PAGES
-on: push
+on:
+  push:
+    branches:
+      - main  # Substitua pelo nome da sua branch principal, se necessário
+
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2  # Use v2 em vez de v3
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Cypress run
-        uses: cypress-io/github-action@v5
-        continue-on-error: true
+        uses: cypress-io/github-action@v2  # Use v2 em vez de v5
         with:
-          install-command: npm install
-          browser: chromet
-     
+          browser: chrome  # Corrigido para "chrome", estava "chromet"
+
+      - name: Publish Report
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./mochawesome-report

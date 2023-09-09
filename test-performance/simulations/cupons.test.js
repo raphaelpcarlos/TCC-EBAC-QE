@@ -1,6 +1,5 @@
-import http from 'k6/http';
-import { sleep } from 'k6';
-import Cupons from '../request/cupons.request';
+import Cupons from '../request/cupons.request.js';
+import { group } from "k6"
 
 export default function () {
 

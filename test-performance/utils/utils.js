@@ -1,5 +1,5 @@
-export default class Utils {
+export default class Url {
     static getBaseUrl() {
-        return "http://lojaebac.ebaconline.art.br/"
+        return "https://lojaebac.ebaconline.art.br/"
     }
 }

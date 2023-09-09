@@ -1,14 +1,13 @@
-
 require('dotenv').config()
 const path = require('path');
 
 module.exports = {
-  mode:  process.env.NODE_ENV,
+  mode: process.env.NODE_ENV,
   entry: {
-    cupons: './simulations/cupons.js',
+    cupons: './simulations/cupons.test.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist'), // eslint-disable-line
+    path: path.resolve(__dirname, 'dist'), 
     libraryTarget: 'commonjs',
     filename: '[name].test.js',
   },

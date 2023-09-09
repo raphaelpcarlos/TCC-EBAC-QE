@@ -1,9 +1,9 @@
 {
     "presets": [
         [
-            "@babel/present-env",
+            "@babel/preset-env",
             {
-                "useBuiltIns": "usage",
+                "useBundled": "usage",
                 "corejs": 3
             }
         ]
